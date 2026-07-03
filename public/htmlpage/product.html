@@ -146,7 +146,123 @@
 
             </div>
         </div>
-    </main>
+
+        <div class="mt-12 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-gray-100 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-gray-100 pb-6 lg:pb-0 lg:pr-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
+                <div class="flex items-center gap-4 mb-4">
+                    <span class="text-4xl font-extrabold text-gray-900">4.0</span>
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-0.5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star text-gray-300"></i>
+                        </div>
+                        <p class="text-xs text-gray-500 font-medium">Based on 142 ratings</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 mb-6">
+                    <div class="flex items-center text-xs text-gray-600 gap-2">
+                        <span class="w-10">5 star</span>
+                        <div class="flex-1 bg-gray-100 h-2 rounded-full overflow-hidden"><div class="bg-yellow-400 h-full w-[65%]"></div></div>
+                        <span class="w-8 text-right">65%</span>
+                    </div>
+                    <div class="flex items-center text-xs text-gray-600 gap-2">
+                        <span class="w-10">4 star</span>
+                        <div class="flex-1 bg-gray-100 h-2 rounded-full overflow-hidden"><div class="bg-yellow-400 h-full w-[20%]"></div></div>
+                        <span class="w-8 text-right">20%</span>
+                    </div>
+                    <div class="flex items-center text-xs text-gray-600 gap-2">
+                        <span class="w-10">3 star</span>
+                        <div class="flex-1 bg-gray-100 h-2 rounded-full overflow-hidden"><div class="bg-yellow-400 h-full w-[10%]"></div></div>
+                        <span class="w-8 text-right">10%</span>
+                    </div>
+                    <div class="flex items-center text-xs text-gray-600 gap-2">
+                        <span class="w-10">2 star</span>
+                        <div class="flex-1 bg-gray-100 h-2 rounded-full overflow-hidden"><div class="bg-yellow-400 h-full w-[3%]"></div></div>
+                        <span class="w-8 text-right">3%</span>
+                    </div>
+                    <div class="flex items-center text-xs text-gray-600 gap-2">
+                        <span class="w-10">1 star</span>
+                        <div class="flex-1 bg-gray-100 h-2 rounded-full overflow-hidden"><div class="bg-yellow-400 h-full w-[2%]"></div></div>
+                        <span class="w-8 text-right">2%</span>
+                    </div>
+                </div>
+
+                <button onclick="toggleReviewForm()" class="w-full border border-[#0f2c3d] text-[#0f2c3d] hover:bg-[#0f2c3d] hover:text-white transition font-semibold py-2.5 rounded-xl text-sm uppercase tracking-wider">
+                    Write A Review
+                </button>
+            </div>
+
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div id="review-form-box" class="hidden bg-gray-50 border border-gray-200 p-5 rounded-xl transition-all duration-300">
+                    <h3 class="text-md font-bold text-gray-800 mb-3">Share Your Feedback</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Review Submitted Successfully!'); toggleReviewForm();">
+                        
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Your Rating *</label>
+                            <div class="flex gap-2 text-xl text-gray-300">
+                                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition review-star" onclick="setReviewRating(1)"></i>
+                                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition review-star" onclick="setReviewRating(2)"></i>
+                                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition review-star" onclick="setReviewRating(3)"></i>
+                                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition review-star" onclick="setReviewRating(4)"></i>
+                                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400 transition review-star" onclick="setReviewRating(5)"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Review Comments *</label>
+                            <textarea rows="3" required placeholder="What did you like or dislike about this cream? How does it feel on skin?"
+                                      class="w-full p-3 border border-gray-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[#0f2c3d]"></textarea>
+                        </div>
+
+                        <div class="flex justify-end gap-3 text-xs uppercase tracking-wide">
+                            <button type="button" onclick="toggleReviewForm()" class="px-4 py-2 border border-gray-300 text-gray-600 font-semibold rounded-lg hover:bg-gray-100">Cancel</button>
+                            <button type="submit" class="px-4 py-2 bg-[#0f2c3d] text-white font-semibold rounded-lg hover:bg-opacity-95 shadow-sm">Submit Review</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="space-y-6 divide-y divide-gray-100">
+                    <div class="pt-2">
+                        <div class="flex justify-between items-start mb-1">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Manish Kumar</h4>
+                                <div class="flex text-yellow-400 text-xs mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-400 font-medium">July 02, 2026</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed font-normal">
+                            This cream is totally non-sticky! It absorbs into my skin in less than a minute and leaves a clean, smooth texture without any white cast. Highly recommended for daily morning skincare.
+                        </p>
+                    </div>
+
+                    <div class="pt-4">
+                        <div class="flex justify-between items-start mb-1">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-800">Nitin K.</h4>
+                                <div class="flex text-yellow-400 text-xs mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-gray-300"></i>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-400 font-medium">June 28, 2026</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed font-normal">
+                            Really liked the texture and fragrance. It kept my face fresh and well hydrated throughout the hot day. Container quality can be improved slightly, but product inside is premium.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </main>
 
     <footer class="bg-[#0f2c3d] text-gray-300 pt-16 pb-6 mt-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b border-gray-800">
@@ -192,24 +308,14 @@
                 </form>
             </div>
         </div>
-        <!-- <div class="w-full max-w-5xl mx-auto px-4 py-8 animate__animated animate__fadeIn">
-            <h3 class="text-xl font-bold text-white-900 mb-4 flex items-center gap-2">
-                <i class="fa-solid fa-location-dot text-red-500"></i> Our Location
-            </h3>
-        
-            <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-gray-200">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7009.850416452274!2d77.23814707416459!3d28.541967688189974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1b8032e0e7f%3A0x8d8484c29620d0c0!2sDizitalAdda%20Digital%20Marketing%20Institute!5e0!3m2!1sen!2sin!4v1782909378891!5m2!1sen!2sin"
-                width="1000"
-                height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-        </div> -->
         
         <div class="text-center pt-6 text-xs text-gray-500">
             Copyright © 2026 MyWebsite ❤️
         </div>
     </footer>
 
-<script src="./js/product.js"></script>
- 
+
+    <script src="./js/product.js"></script>
+     
 </body>
 </html>

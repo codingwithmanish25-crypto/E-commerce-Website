@@ -67,3 +67,25 @@ function updateHeaderCartCount() {
 
 
 window.onload = updateHeaderCartCount;
+
+
+
+
+
+function toggleReviewForm() {
+    const formBox = document.getElementById('review-form-box');
+    formBox.classList.toggle('hidden');
+}
+
+function setReviewRating(ratingValue) {
+    const stars = document.querySelectorAll('.review-star');
+    stars.forEach((star, index) => {
+        if (index < ratingValue) {
+            star.classList.remove('fa-regular', 'text-gray-300');
+            star.classList.add('fa-solid', 'text-yellow-400');
+        } else {
+            star.classList.remove('fa-solid', 'text-yellow-400');
+            star.classList.add('fa-regular', 'text-gray-300');
+        }
+    });
+}
