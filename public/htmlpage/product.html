@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Ritual | Daily Radiance Cream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased font-sans">
+
+    <nav class="bg-[#0f2c3d] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <span class="text-2xl font-bold tracking-wider flex items-center gap-2">
+                  <a href="./index.html">  <i class="fa-solid fa-leaf text-green-400"></i> LOGO OR NAME
+                  </a>
+                </span>
+                <button class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div class="flex flex-1 max-w-md mx-4 w-full relative">
+                <input type="text" placeholder="Search products..." class="w-full px-4 py-1.5 rounded-l text-gray-900 focus:outline-none text-sm">
+                <button class="bg-[#1a445c] px-4 rounded-r text-sm hover:bg-opacity-90">Search</button>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="./index.html" class="hover:text-green-300 transition">Home</a>
+                <a href="#" class="hover:text-green-300 transition">Shop</a>
+                <a href="#" class="hover:text-green-300 transition">Skin & Body Care</a>
+                <a href="#" class="hover:text-green-300 transition">Hair Care</a>
+                <div class="flex items-center gap-4 ml-4">
+                    <a href="./cart.html" class="relative"><i class="fa-solid fa-shopping-cart text-lg"></i><span class="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">0</span></a>
+                    <a href="./login.html"><i class="fa-solid fa-user text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <nav class="flex text-sm text-gray-500 gap-2">
+            <a href="./index.html" class="hover:text-[#0f2c3d] transition">Home</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Glow Ritual</span>
+        </nav>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-gray-100">
+            
+            <div class="flex flex-col gap-4">
+                <div class="bg-gray-50 rounded-xl p-6 flex justify-center items-center h-[400px] overflow-hidden border border-gray-100">
+                    <img id="main-product-image" src="../static/face creame image.jfif" alt="Glow Ritual Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="flex gap-3 justify-center">
+                    <button onclick="changeImage('../static/face creame image.jfif')" class="w-20 h-20 bg-gray-50 p-2 rounded-lg border-2 border-[#0f2c3d] overflow-hidden flex items-center justify-center">
+                        <img src="../static/face creame image.jfif" class="max-h-full object-contain" alt="Thumbnail 1">
+                    </button>
+                    <button onclick="changeImage('../static/face creame image.jfif')" class="w-20 h-20 bg-gray-50 p-2 rounded-lg border border-gray-200 hover:border-gray-400 overflow-hidden flex items-center justify-center transition">
+                        <img src="../static/face creame image.jfif" class="max-h-full object-contain opacity-70" alt="Thumbnail 2">
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Best Seller</span>
+                        <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">100% Vegan</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Glow Ritual | Daily Radiance Cream</h1>
+                    
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star text-gray-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-medium">(4.0 / 5.0 out of 142 ratings)</span>
+                    </div>
+
+                    <div class="mb-6 flex items-baseline gap-3">
+                        <span id="product-price" class="text-3xl font-bold text-gray-900">₹ 300</span>
+                        <span id="product-mrp" class="text-sm text-gray-400 line-through">₹ 450</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">(Save 33%)</span>
+                    </div>
+
+                    <hr class="border-gray-100 my-6">
+
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Experience instant hydration and an effortless, glowing complexion. Formulated with skin-loving antioxidants and vitamin C, this daily radiance cream protects your skin barrier while bringing out your natural, inner brightness. Perfect for all skin types.
+                    </p>
+
+                    <div class="mb-6">
+                        <h3 class="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">Select Size</h3>
+                        <div class="flex gap-3">
+                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-sm border-2 border-[#0f2c3d] px-4 py-2 rounded-lg bg-[#0f2c3d] text-white font-medium transition shadow-sm">
+                                100ml
+                            </button>
+                            <button onclick="selectSize('200ml', 550, 800, this)" class="size-btn text-sm border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-600 font-medium transition">
+                                200ml
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">Quantity</h3>
+                        <div class="flex items-center border border-gray-300 w-32 rounded-lg overflow-hidden shadow-sm">
+                            <button onclick="updateQty(-1)" class="w-10 h-10 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none">-</button>
+                            
+                            <input type="number" id="quantity" value="1" min="1" readonly class="w-12 h-10 text-center font-semibold text-gray-800 focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                            
+                            <button onclick="updateQty(1)" class="w-10 h-10 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="flex-1 bg-[#0f2c3d] text-white py-3.5 rounded-xl font-semibold text-sm tracking-wide uppercase shadow-md hover:bg-opacity-95 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                    </button>
+                    <button class="flex-1 bg-amber-500 text-white py-3.5 rounded-xl font-semibold text-sm tracking-wide uppercase shadow-md hover:bg-amber-600 transition">
+                        Buy It Now
+                    </button>
+                </div>
+
+                <div class="mt-8 border-t border-gray-100 pt-4">
+                    <details class="group py-3" open>
+                        <summary class="flex justify-between items-center font-semibold text-sm text-gray-800 cursor-pointer list-none">
+                            <span>Product Details & Benefits</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs text-gray-500"></i></span>
+                        </summary>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            Apply a dime-sized amount cleanly over your face and neck every morning. Non-greasy, fast-absorbing formula that leaves no white cast. Clinically tested for safety and sensitivity.
+                        </p>
+                    </details>
+                    <details class="group py-3 border-t border-gray-100">
+                        <summary class="flex justify-between items-center font-semibold text-sm text-gray-800 cursor-pointer list-none">
+                            <span>Key Ingredients</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs text-gray-500"></i></span>
+                        </summary>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed font-mono">
+                            Aqua, Vitamin C (Ascorbic Acid), Hyaluronic Acid, Shea Butter, Niacinamide, Glycerin, Sweet Almond Oil, Natural Fragrance Extracts.
+                        </p>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#0f2c3d] text-gray-300 pt-16 pb-6 mt-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b border-gray-800">
+            <div>
+                <h3 class="text-white font-bold text-lg mb-4">Company Overview</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About Our Brand</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-white transition">Corporate Governance</a></li>
+                    <li><a href="#" class="hover:text-white transition">Grievance Redressal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white font-bold text-lg mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm mb-6">
+                    <li><a href="#" class="hover:text-white transition">Knowledge Base FAQs</a></li>
+                    <li><a href="#" class="hover:text-white transition">Return & Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Payment Options</a></li>
+                </ul>
+                <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Social Media Links</h3>
+                <div class="flex gap-4 text-xl">
+                    <a href="#" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="bg-[#16394e] p-6 rounded-xl border border-[#1e4b66]">
+                <h3 class="text-white font-bold text-lg mb-4">Contacts</h3>
+                <form class="space-y-3">
+                    <div>
+                        <label class="block text-xs uppercase font-medium text-gray-400 mb-1">Name</label>
+                        <input type="text" class="w-full bg-[#0f2c3d] rounded p-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-green-400 border border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-medium text-gray-400 mb-1">Email</label>
+                        <input type="email" class="w-full bg-[#0f2c3d] rounded p-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-green-400 border border-transparent">
+                    </div>
+                    <button type="button" class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded text-xs transition tracking-wide uppercase mt-2">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="w-full max-w-5xl mx-auto px-4 py-8 animate__animated animate__fadeIn">
+            <h3 class="text-xl font-bold text-white-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-red-500"></i> Our Location
+            </h3>
+        
+            <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-gray-200">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7009.850416452274!2d77.23814707416459!3d28.541967688189974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1b8032e0e7f%3A0x8d8484c29620d0c0!2sDizitalAdda%20Digital%20Marketing%20Institute!5e0!3m2!1sen!2sin!4v1782909378891!5m2!1sen!2sin"
+                width="1000"
+                height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div> -->
+        
+        <div class="text-center pt-6 text-xs text-gray-500">
+            Copyright © 2026 MyWebsite ❤️
+        </div>
+    </footer>
+
+<script src="../js/product.js"></script>
+ 
+</body>
+</html>

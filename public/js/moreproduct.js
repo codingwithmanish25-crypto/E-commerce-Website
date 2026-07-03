@@ -1,0 +1,286 @@
+    // Real-world dynamic item array mapping out prices, discounts, tags, categories & sizes dynamically
+    const PRODUCTS_DATABASE = [
+        { id: "p1", name: "Glow Ritual | Daily Radiance Cream", category: "skincare", isBestseller: true, rating: 4.5, baseImg: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "100ml", price: 300, mrp: 450}, {ml: "200ml", price: 550, mrp: 799}] },
+        { id: "p2", name: "Hydra Burst | Water Surge Gel Cream", category: "skincare", isBestseller: false, rating: 4.8, baseImg: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "100ml", price: 420, mrp: 600}, {ml: "200ml", price: 799, mrp: 1150}] },
+        { id: "p3", name: "Silk Intense | Repair Onion Hair Mask", category: "haircare", isBestseller: true, rating: 3.9, baseImg: "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "150ml", price: 299, mrp: 399}, {ml: "300ml", price: 499, mrp: 699}] },
+        { id: "p4", name: "Satin Smooth | Cocoa Butter Body Lotion", category: "bodycare", isBestseller: false, rating: 4.2, baseImg: "https://images.unsplash.com/photo-1556229174-5e42a09e45af?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "200ml", price: 250, mrp: 350}, {ml: "400ml", price: 450, mrp: 599}] },
+        { id: "p5", name: "Advanced Glow | Vitamin C Serum", category: "skincare", isBestseller: true, rating: 4.9, baseImg: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "30ml", price: 499, mrp: 699}, {ml: "50ml", price: 750, mrp: 999}] },
+        { id: "p6", name: "Root Therapy | Tea Tree Anti-Dandruff Oil", category: "haircare", isBestseller: false, rating: 3.5, baseImg: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400&auto=format&fit=crop&q=60", sizes: [{ml: "100ml", price: 199, mrp: 299}, {ml: "200ml", price: 349, mrp: 499}] }
+    ];
+
+    // Global Dynamic UI State Tracking
+    let selectedCategories = [];
+    let maxPriceConstraint = 1500;
+    let ratingFloorFilter = 0;
+    let activeQuickTag = 'all';
+
+    // Initialize App on DOM Complete
+    document.addEventListener("DOMContentLoaded", () => {
+        renderProductCatalog(PRODUCTS_DATABASE);
+        syncCartCounterIcon();
+    });
+
+    // Loop array data directly into isolated template component string maps 
+    function renderProductCatalog(products) {
+        const gridContainer = document.getElementById('product-grid');
+        const noProductsPlaceholder = document.getElementById('no-products');
+        
+        if (products.length === 0) {
+            gridContainer.innerHTML = "";
+            noProductsPlaceholder.classList.remove('hidden');
+            document.getElementById('results-count').innerText = `0 Products Found`;
+            return;
+        }
+        
+        noProductsPlaceholder.classList.add('hidden');
+        document.getElementById('results-count').innerText = `Showing ${products.length} products`;
+
+        gridContainer.innerHTML = products.map(product => {
+            const initialSize = product.sizes[0];
+            return `
+            <div data-id="${product.id}" class="product-card bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                
+                <div class="relative bg-gray-50 rounded-lg p-4 mb-4 flex justify-center h-48 items-center overflow-hidden">
+                    ${product.isBestseller ? `<span class="absolute top-2 left-2 bg-orange-500 text-white text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-md shadow-sm z-10"><i class="fa-solid fa-fire mr-1"></i>Bestseller</span>` : ''}
+                    <img src="${product.baseImg}" alt="${product.name}" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"> 
+                </div>
+                
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-800 text-center line-clamp-2 h-10 product-name">${product.name}</h3>
+                        
+                        <div class="flex justify-center my-2 text-yellow-400 text-xs">
+                            ${generateStarsHTML(product.rating)}
+                            <span class="text-gray-400 ml-1 font-medium">(${product.rating})</span>
+                        </div>
+                        
+                        <div class="text-center mb-3">
+                            <span class="product-price font-bold text-gray-900 text-lg">₹ ${initialSize.price}</span>
+                            <span class="product-mrp text-xs line-through text-gray-400 ml-2">₹ ${initialSize.mrp}</span>
+                        </div>
+                       
+                        <div class="flex justify-center gap-2 mb-4 size-btn-container">
+                            ${product.sizes.map((sz, idx) => `
+                                <button onclick="selectSizeConfig('${sz.ml}', ${sz.price}, ${sz.mrp}, this)" 
+                                        class="size-btn text-xs border ${idx === 0 ? 'border-[#0f2c3d] bg-[#0f2c3d] text-white' : 'border-gray-300 hover:bg-gray-100 text-gray-600'} px-3 py-1 rounded font-medium transition shadow-xs">
+                                    ${sz.ml}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="flex items-center border border-gray-300 w-full rounded-lg overflow-hidden shadow-xs bg-white qty-container">
+                            <button onclick="adjustQuantityValue(-1, this)" class="w-10 h-9 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none border-r border-gray-200">-</button>
+                            <input type="number" class="quantity flex-1 h-9 text-center font-semibold text-gray-800 focus:outline-none text-sm" value="1" min="1" readonly>
+                            <button onclick="adjustQuantityValue(1, this)" class="w-10 h-9 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none border-l border-gray-200">+</button>
+                        </div>
+                    </div>
+                
+                    <button onclick="commitProductToCart('${product.id}', this)" class="w-full bg-[#0f2c3d] text-white py-2.5 rounded font-medium text-xs tracking-wide uppercase shadow hover:bg-opacity-90 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
+                    </button>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // Star UI Generator Utility Function
+    function generateStarsHTML(rating) {
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= Math.floor(rating)) {
+                html += `<i class="fa-solid fa-star"></i>`;
+            } else if (i - 0.5 <= rating) {
+                html += `<i class="fa-solid fa-star-half-stroke"></i>`;
+            } else {
+                html += `<i class="fa-regular fa-star text-gray-300"></i>`;
+            }
+        }
+        return html;
+    }
+
+    // SCOPED COMPONENT 1: Local Size Configuration Switch Engine
+    function selectSizeConfig(sizeLabel, exactPrice, exactMrp, element) {
+        const currentCard = element.closest('.product-card');
+        if (!currentCard) return;
+
+        // Target price parameters locally within this DOM branch tree node boundaries only
+        currentCard.querySelector('.product-price').innerText = `₹ ${exactPrice}`;
+        currentCard.querySelector('.product-mrp').innerText = `₹ ${exactMrp}`;
+
+        // Clear configuration properties inside targeted context node elements only
+        currentCard.querySelectorAll('.size-btn').forEach(btn => {
+            btn.className = "size-btn text-xs border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 text-gray-600 font-medium transition";
+        });
+
+        // Isolate active styling assignment to selection node parameters only
+        element.className = "size-btn text-xs border border-[#0f2c3d] px-3 py-1 rounded bg-[#0f2c3d] text-white font-medium transition shadow-xs";
+    }
+
+    // SCOPED COMPONENT 2: Quantities Adjuster Node Processor Function Engine 
+    function adjustQuantityValue(change, element) {
+        const parentQtyWrapper = element.closest('.qty-container');
+        const targetInput = parentQtyWrapper.querySelector('.quantity');
+        
+        let currentQuantityValue = parseInt(targetInput.value) || 1;
+        currentQuantityValue += change;
+        
+        if (currentQuantityValue < 1) currentQuantityValue = 1;
+        targetInput.value = currentQuantityValue;
+    }
+
+    // STREAMING FILTERS ENGINE: Combines and filters state profiles systematically
+    function filterProducts() {
+        // Read Collection Checkboxes
+        const checkboxes = document.querySelectorAll('input[name="category"]:checked');
+        selectedCategories = Array.from(checkboxes).map(cb => cb.value);
+
+        // Read Price Slider Constraint Input Values
+        maxPriceConstraint = parseInt(document.getElementById('price-range').value);
+
+        // Cascade Pipeline Filtering Process Operations Loops
+        let results = PRODUCTS_DATABASE.filter(item => {
+            // Match Category Array Matches
+            if (selectedCategories.length > 0 && !selectedCategories.includes(item.category)) return false;
+            
+            // Match Customer Ratings Baseline Minimum Threshold Filters
+            if (item.rating < ratingFloorFilter) return false;
+
+            // Match Quick Selection Navigation Bar Action Badges Configurations Filters
+            if (activeQuickTag === 'bestseller' && !item.isBestseller) return false;
+
+            // Read matching dynamic scoped selection node instances data matching current config active ranges
+            const activeCardContextValuePrice = item.sizes[0].price; // Evaluates low base variations boundaries config settings
+            if (activeCardContextValuePrice > maxPriceConstraint) return false;
+
+            return true;
+        });
+
+        // Process Sorting Options
+        const sortSelection = document.getElementById('sort-filter').value;
+        if (sortSelection === 'price-low-high') {
+            results.sort((a, b) => a.sizes[0].price - b.sizes[0].price);
+        } else if (sortSelection === 'price-high-low') {
+            results.sort((a, b) => b.sizes[0].price - a.sizes[0].price);
+        } else if (sortSelection === 'rating-high-low') {
+            results.sort((a, b) => b.rating - a.rating);
+        }
+
+        // Stream parsed processing mutations downstream directly back to the active DOM Engine rendering pipeline mapping
+        renderProductCatalog(results);
+    }
+
+    // UI Label Tracker Event Bindings Updates Handler Function
+    function updatePriceLabel(value) {
+        document.getElementById('price-max-label').innerText = `₹${value}`;
+    }
+
+    // Set Rating Filter Level state profile configuration controls matching conditions mapping keys
+    function setRatingFilter(minStars) {
+        ratingFloorFilter = minStars;
+        
+        // Toggle highlight visual active state profile styles metrics indicators loops
+        document.querySelectorAll('.rating-filter-btn').forEach((btn, index) => {
+            if ((minStars === 4 && index === 0) || (minStars === 3 && index === 1)) {
+                btn.className = "rating-filter-btn flex items-center text-sm text-orange-600 font-bold w-full text-left py-0.5";
+            } else {
+                btn.className = "rating-filter-btn flex items-center text-sm text-gray-600 hover:text-orange-500 w-full text-left py-0.5";
+            }
+        });
+
+        filterProducts();
+    }
+
+    // Upper Header Quick Filter Engine Interface Control Triggers Map
+    function applyQuickFilter(mode) {
+        activeQuickTag = mode;
+        const bestsellerBadge = document.getElementById('badge-bestseller');
+        
+        if (mode === 'bestseller') {
+            bestsellerBadge.classList.remove('hidden');
+        } else {
+            bestsellerBadge.classList.add('hidden');
+        }
+        filterProducts();
+    }
+
+    // Global Dynamic Hard Flush Engine State Clear Reset Handler
+    function resetFilters() {
+        document.querySelectorAll('input[name="category"]').forEach(cb => cb.checked = false);
+        document.getElementById('price-range').value = 1500;
+        document.getElementById('sort-filter').value = 'featured';
+        updatePriceLabel(1500);
+        ratingFloorFilter = 0;
+        activeQuickTag = 'all';
+        document.getElementById('badge-bestseller').add('hidden');
+        
+        document.querySelectorAll('.rating-filter-btn').forEach(btn => {
+            btn.className = "rating-filter-btn flex items-center text-sm text-gray-600 hover:text-orange-500 w-full text-left py-0.5";
+        });
+
+        filterProducts();
+    }
+
+    // SHOPPING CART STATE LOGIC SYSTEM MACHINE ENGINE
+    function commitProductToCart(productId, actionBtnElement) {
+        const cardElement = actionBtnElement.closest('.product-card');
+        
+        // Find current dynamic inner state active variant configuration data variables details inside specific item branch context element node fields
+        const activeSelectedSizeBtn = cardElement.querySelector('.size-btn-container .bg-\\[\\#0f2c3d\\]');
+        const targetActiveConfiguredSizeText = activeSelectedSizeBtn ? activeSelectedSizeBtn.innerText.trim() : "Default Size";
+        
+        const selectedRawPriceText = cardElement.querySelector('.product-price').innerText;
+        const parsedCleanNumericPriceVal = parseInt(selectedRawPriceText.replace('₹', '').trim()) || 0;
+        
+        const currentSelectedQuantityMetricVal = parseInt(cardElement.querySelector('.quantity').value) || 1;
+        const targetProductDisplayNameText = cardElement.querySelector('.product-name').innerText;
+
+        // Commit structured state data elements variables models directly inside unified localStorage schema configurations arrays lists properties mapping systems keys
+        let localShoppingSessionCartArrayStore = JSON.parse(localStorage.getItem('glowRitualCartData')) || [];
+        
+        // Match structural configurations item objects inside store map models matrix items checks definitions mappings details keys entries definitions matching conditions keys definitions
+        const compositeCartUniqueIdKeyString = `${productId}_${targetActiveConfiguredSizeText}`;
+        let matchingProductCartObjectInstance = localShoppingSessionCartArrayStore.find(cartItem => cartItem.uniqueCartItemKeyId === compositeCartUniqueIdKeyString);
+
+        if (matchingProductCartObjectInstance) {
+            matchingProductCartObjectInstance.qtyCountOrderMetric += currentSelectedQuantityMetricVal;
+        } else {
+            localShoppingSessionCartArrayStore.push({
+                uniqueCartItemKeyId: compositeCartUniqueIdKeyString,
+                productId: productId,
+                productName: targetProductDisplayNameText,
+                activeSelectedSizeConfig: targetActiveConfiguredSizeText,
+                unitPriceItemConfig: parsedCleanNumericPriceVal,
+                qtyCountOrderMetric: currentSelectedQuantityMetricVal
+            });
+        }
+
+        // Save state array
+        localStorage.setItem('glowRitualCartData', JSON.stringify(localShoppingSessionCartArrayStore));
+        
+        // Refresh counter components
+        syncCartCounterIcon();
+
+        // Perform responsive interface interaction transition notifications mappings elements settings values feedback alerts properties indicators
+        const backupOriginalActionBtnInnerHtmlMarkup = actionBtnElement.innerHTML;
+        actionBtnElement.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> Item Added!`;
+        actionBtnElement.classList.replace('bg-[#0f2c3d]', 'bg-green-600');
+
+        setTimeout(() => {
+            actionBtnElement.innerHTML = backupOriginalActionBtnInnerHtmlMarkup;
+            actionBtnElement.classList.replace('bg-green-600', 'bg-[#0f2c3d]');
+            cardElement.querySelector('.quantity').value = 1; // reset local quantity input value display fields counters back down to default 1 metric indexes settings profile maps indices variables units parameter checks keys definitions details profiles map parameters checks options maps
+        }, 1200);
+    }
+
+    // Syncs local storage tracking array metrics variables items metrics loops directly back into top Header navbar counter element markers
+    function syncCartCounterIcon() {
+        const countDisplayTargetNode = document.getElementById('cart-count');
+        if (!countDisplayTargetNode) return;
+
+        const cartCollection = JSON.parse(localStorage.getItem('glowRitualCartData')) || [];
+        const netCombinedItemQuantitiesSum = cartCollection.reduce((accumulatorTotal, currentCartItemObj) => accumulatorTotal + currentCartItemObj.qtyCountOrderMetric, 0);
+        
+        countDisplayTargetNode.innerText = netCombinedItemQuantitiesSum;
+    }

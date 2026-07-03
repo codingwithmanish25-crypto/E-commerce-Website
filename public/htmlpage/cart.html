@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Glow Ritual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  
+
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+
+        <nav class="bg-[#0f2c3d] text-white sticky top-0 z-50 shadow-md">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <span class="text-2xl font-bold tracking-wider flex items-center gap-2">
+                      <a href="./index.html">  <i class="fa-solid fa-leaf text-green-400"></i> LOGO OR NAME
+                      </a>
+                    </span>
+                    <button class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+                </div>
+                <div class="flex flex-1 max-w-md mx-4 w-full relative">
+                    <input type="text" placeholder="Search products..." class="w-full px-4 py-1.5 rounded-l text-gray-900 focus:outline-none text-sm">
+                    <button class="bg-[#1a445c] px-4 rounded-r text-sm hover:bg-opacity-90">Search</button>
+                </div>
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="./index.html" class="hover:text-green-300 transition">Home</a>
+                    <a href="#" class="hover:text-green-300 transition">Shop</a>
+                    <a href="#" class="hover:text-green-300 transition">Skin & Body Care</a>
+                    <a href="#" class="hover:text-green-300 transition">Hair Care</a>
+                    <div class="flex items-center gap-4 ml-4">
+                        <a href="#" class="relative"><i class="fa-solid fa-shopping-cart text-lg"></i><span class="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">0</span></a>
+                        <a href="./login.html"><i class="fa-solid fa-user text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="./product.html" class="flex items-center gap-2 text-[#0f2c3d] font-bold text-xl tracking-tight">
+                <i class="fa-solid fa-sparkles text-amber-500"></i> Glow Ritual
+            </a>
+            <a href="./product.html" class="text-sm font-medium text-gray-600 hover:text-[#0f2c3d] transition">
+                <i class="fa-solid fa-arrow-left me-1"></i> Continue Shopping
+            </a>
+        </div>
+
+        
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+            <i class="fa-solid fa-bag-shopping text-[#0f2c3d]"></i> Your Shopping Bag 
+            <span id="cart-count-badge" class="text-xs bg-[#0f2c3d] text-white px-2.5 py-1 rounded-full font-semibold">1 Item</span>
+        </h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <div class="lg:col-span-2 space-y-4">
+                
+                <div id="cart-item-1" class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between transition hover:shadow-md">
+                    <div class="flex gap-4 items-center w-full sm:w-auto">
+                        <div class="bg-gray-50 rounded-xl p-2 w-24 h-24 flex-shrink-0 flex items-center justify-center border border-gray-100">
+                            <img src="../static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-base">Glow Ritual | Daily Radiance Cream</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">
+                                <span class="font-medium">Size:</span> <span id="item-size-display" class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded">100ml</span>
+                            </p>
+                            <p class="text-xs text-emerald-600 font-medium mt-1"><i class="fa-solid fa-check me-1"></i>In Stock</p>
+                        </div>
+                    </div>
+
+                    <div class="flex sm:flex-row flex-row-reverse sm:items-center justify-between sm:justify-end gap-6 w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+                        <div class="text-right">
+                            <span id="item-total-price" class="font-bold text-gray-900 text-lg block">₹ 300</span>
+                            <span id="item-unit-price" class="text-xs text-gray-400 block">₹ 300 / unit</span>
+                        </div>
+
+                        <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-gray-50 h-9">
+                            <button onclick="changeQty(-1)" class="w-8 h-full bg-white text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center text-sm">-</button>
+                            <input type="number" id="cart-qty" value="1" min="1" readonly class="w-10 h-full bg-white text-center font-semibold text-gray-800 text-xs focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                            <button onclick="changeQty(1)" class="w-8 h-full bg-white text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center text-sm">+</button>
+                        </div>
+
+                        <button onclick="removeProduct()" class="text-gray-400 hover:text-red-500 transition p-2 rounded-lg hover:bg-red-50" title="Remove item">
+                            <i class="fa-regular fa-trash-can text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="empty-cart-state" class="hidden bg-white rounded-2xl p-12 text-center border border-gray-100 shadow-sm">
+                    <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Your cart is empty</h3>
+                    <p class="text-gray-500 text-sm mb-6">Looks like you haven't added anything to your cart yet.</p>
+                    <a href="./product.html" class="inline-flex bg-[#0f2c3d] text-white px-6 py-2.5 rounded-xl font-medium text-sm tracking-wide shadow-md hover:bg-opacity-95 transition">
+                        Shop Now
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                    <div class="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-truck-fast text-emerald-600 text-lg"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Free Shipping</h4>
+                            <p class="text-[11px] text-gray-500">On all orders above ₹499</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-shield-halved text-blue-600 text-lg"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">100% Secure</h4>
+                            <p class="text-[11px] text-gray-500">SSL Encrypted payments</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-rotate-left text-amber-600 text-lg"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900">Easy Returns</h4>
+                            <p class="text-[11px] text-gray-500">7-day window</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="summary-panel" class="space-y-6">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">Apply Coupon</h3>
+                    <div class="flex gap-2">
+                        <div class="relative flex-1">
+                            <i class="fa-solid fa-ticket absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                            <input type="text" id="coupon-input" placeholder="Enter coupon code" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-xl text-sm uppercase tracking-wider font-semibold focus:outline-none focus:border-[#0f2c3d]">
+                        </div>
+                        <button onclick="applyCoupon()" class="bg-[#0f2c3d] text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-opacity-95 transition">Apply</button>
+                    </div>
+                    <p id="coupon-message" class="text-xs font-medium mt-2 hidden"></p>
+                    
+                    <div class="mt-4 pt-3 border-t border-dashed border-gray-100">
+                        <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-2">Available Coupons</p>
+                        <button onclick="autoFillCoupon('GLOW20')" class="w-full flex justify-between items-center bg-amber-50/50 hover:bg-amber-50 border border-amber-200/60 p-2 rounded-xl transition group">
+                            <span>
+                                <span class="block text-xs font-bold text-amber-800 font-mono">GLOW20</span>
+                                <span class="block text-[10px] text-amber-600">Get 20% off on your total order</span>
+                            </span>
+                            <i class="fa-solid fa-circle-plus text-amber-400 group-hover:text-amber-600 transition text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b border-gray-100 pb-3">Bill Details</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between text-gray-600">
+                            <span>Bag Subtotal</span>
+                            <span id="bill-subtotal" class="font-medium text-gray-900">₹ 300</span>
+                        </div>
+                        
+                        <div id="discount-row" class="flex justify-between text-emerald-600 hidden">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-tag"></i> Coupon Discount (<span id="applied-coupon-name"></span>)</span>
+                            <span class="font-semibold">- ₹ <span id="bill-discount">0</span></span>
+                        </div>
+
+                        <div class="flex justify-between text-gray-600">
+                            <span>Delivery Charges</span>
+                            <span id="bill-delivery" class="font-medium text-gray-900">₹ 40</span>
+                        </div>
+
+                        <div id="shipping-alert" class="bg-blue-50/70 border border-blue-100 text-blue-800 text-xs p-2.5 rounded-xl flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-500"></i>
+                            <span>Add <span id="shipping-needed" class="font-bold">₹ 199</span> more for <span class="font-bold">FREE Delivery</span>!</span>
+                        </div>
+
+                        <hr class="border-gray-100 my-4">
+
+                        <div class="flex justify-between items-baseline">
+                            <span class="text-base font-bold text-gray-900">Total Payable</span>
+                            <span id="bill-total" class="text-2xl font-bold text-[#0f2c3d]">₹ 340</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-[#0f2c3d] text-white py-3.5 rounded-xl font-semibold text-sm tracking-wide uppercase shadow-md hover:bg-opacity-95 transition mt-6 flex items-center justify-center gap-2">
+                        Proceed to Checkout <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+        
+    <script src="../js/cart.js"></script>
+    </body>
+    </html>
