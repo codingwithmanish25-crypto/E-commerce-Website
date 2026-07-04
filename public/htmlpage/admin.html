@@ -4,14 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glow Ritual - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#152219',
+                        'ink-light': '#1F3327',
+                        'ink-soft': '#28402F',
+                        parchment: '#F7F2E7',
+                        card: '#FFFFFF',
+                        clay: '#A24C3D',
+                        'clay-light': '#C97E63',
+                        'clay-dark': '#7E3A2F',
+                        sage: '#6C8763',
+                        'sage-light': '#E7ECDF',
+                        gold: '#BB9556',
+                        ash: '#6B685F',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+                        sans: ['Manrope', 'ui-sans-serif', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .product-card:hover .add-to-cart-btn { transform: translateY(0); opacity: 1; }
+        .label-perforation {
+            background-image: radial-gradient(circle, #E4DCC9 1.5px, transparent 1.5px);
+            background-size: 8px 8px;
+        }
+        .dotted-rule {
+            background-image: linear-gradient(to right, #C9BE9F 40%, transparent 0%);
+            background-position: bottom;
+            background-size: 10px 1.5px;
+            background-repeat: repeat-x;
+        }
+        details summary::-webkit-details-marker { display: none; }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body class="bg-parchment font-sans text-[#2A2A24] antialiased">
 
-    <nav class="bg-[#0f2c3d] text-white p-4 shadow-md">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <nav class="bg-ink text-parchment sticky top-0 z-50 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
             <h1 class="text-xl font-bold tracking-wider">LOGO And Name <span class="text-xs text-green-400 ml-2">ADMIN</span></h1>
-            <a href="index.html" class="text-sm bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded transition">View Store</a>
+          
+          
+            
+              <a href="./index.html" class="bg-clay hover:bg-clay-dark transition px-9 rounded py-3 text-sm font-medium">View Store</a>
+          
         </div>
     </nav>
 
@@ -84,7 +133,7 @@
                 <button type="button" class="px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
                     Discard
                 </button>
-                <button type="submit" class="px-6 py-2 bg-[#0f2c3d] text-white rounded-md text-sm font-medium hover:bg-[#163e55] transition shadow-sm">
+                <button type="submit" class="px-6 py-2 bg-clay text-white rounded-md text-sm font-medium hover:bg-[#163e55] transition shadow-sm">
                     Publish Product
                 </button>
             </div>
