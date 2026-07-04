@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Shop | Glow Ritual</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,18 +33,10 @@
         }
     </script>
     <style>
-=======
-    <title>Glow Ritual | Premium Cosmetics Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Hide native scrollbar for webkit but allow scrolling */
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<<<<<<< HEAD
 <body class="bg-parchment text-[#2A2A24] font-sans antialiased">
 
     <!-- ============ NAV (matches index.html) ============ -->
@@ -106,42 +97,6 @@
                 <div class="mb-6">
                     <label class="block text-xs font-bold text-ash uppercase tracking-wider mb-2">Sort By</label>
                     <select id="sort-filter" onchange="filterProducts()" class="w-full bg-parchment border border-[#DCD3BA] rounded-lg p-2.5 text-sm text-ink focus:outline-none focus:border-clay">
-=======
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="./index.html" class="text-xl font-bold text-[#0f2c3d] tracking-wider uppercase">Logo And Name</a>
-            <div class="flex flex-1 max-w-md mx-4 w-full relative">
-                <input type="text" placeholder="Search products..." class="w-full px-4 py-1.5 rounded-l text-gray-900 focus:outline-none border-blue-100 border-2 text-sm">
-                <button class="bg-[#1a445c] px-4 rounded-r text-white text-sm hover:bg-opacity-90">Search</button>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <button onclick="applyQuickFilter('all')" class="text-sm font-medium text-gray-600 hover:text-[#0f2c3d] px-2 py-1">View All</button>
-                <button onclick="applyQuickFilter('bestseller')" class="text-sm font-medium text-gray-600 hover:text-[#0f2c3d] px-2 py-1"><i class="fa-solid fa-fire text-orange-500 mr-1"></i>Bestsellers</button>
-                
-                <a href="#" class="relative p-2 text-gray-700 hover:text-[#0f2c3d] transition">
-                    <i class="fa-solid fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            
-            <aside class="w-full lg:w-64 flex-shrink-0 bg-white p-6 rounded-xl border border-gray-200 shadow-sm h-fit">
-                <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-3">
-                    <h2 class="font-bold text-gray-900 tracking-wide text-base"><i class="fa-solid fa-sliders mr-2 text-[#0f2c3d]"></i>Filters</h2>
-                    <button onclick="resetFilters()" class="text-xs text-blue-600 hover:underline font-medium">Clear All</button>
-                </div>
-
-                <div class="mb-6">
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Sort By</label>
-                    <select id="sort-filter" onchange="filterProducts()" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2 text-sm text-gray-700 focus:outline-none focus:border-[#0f2c3d]">
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                         <option value="featured">Featured</option>
                         <option value="price-low-high">Price: Low to High</option>
                         <option value="price-high-low">Price: High to Low</option>
@@ -150,7 +105,6 @@
                 </div>
 
                 <div class="mb-6">
-<<<<<<< HEAD
                     <label class="block text-xs font-bold text-ash uppercase tracking-wider mb-2">Collection</label>
                     <div class="space-y-2.5">
                         <label class="flex items-center text-sm text-[#3d3b34] cursor-pointer hover:text-ink">
@@ -161,41 +115,20 @@
                         </label>
                         <label class="flex items-center text-sm text-[#3d3b34] cursor-pointer hover:text-ink">
                             <input type="checkbox" name="category" value="bodycare" onchange="filterProducts()" class="rounded border-[#DCD3BA] text-clay focus:ring-clay mr-2.5"> Bodycare
-=======
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Collection</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
-                            <input type="checkbox" name="category" value="skincare" onchange="filterProducts()" class="rounded border-gray-300 text-[#0f2c3d] focus:ring-[#0f2c3d] mr-2"> Skincare
-                        </label>
-                        <label class="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
-                            <input type="checkbox" name="category" value="haircare" onchange="filterProducts()" class="rounded border-gray-300 text-[#0f2c3d] focus:ring-[#0f2c3d] mr-2"> Haircare
-                        </label>
-                        <label class="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
-                            <input type="checkbox" name="category" value="bodycare" onchange="filterProducts()" class="rounded border-gray-300 text-[#0f2c3d] focus:ring-[#0f2c3d] mr-2"> Bodycare
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                         </label>
                     </div>
                 </div>
 
                 <div class="mb-6">
-<<<<<<< HEAD
                     <label class="block text-xs font-bold text-ash uppercase tracking-wider mb-2">Max Price</label>
                     <input type="range" id="price-range" min="200" max="1500" value="1500" oninput="updatePriceLabel(this.value)" onchange="filterProducts()" class="w-full h-1 bg-[#E3D9BC] rounded-lg appearance-none cursor-pointer accent-clay">
                     <div class="flex justify-between text-xs text-ash mt-2">
                         <span>₹200</span>
                         <span id="price-max-label" class="font-semibold text-clay">₹1500</span>
-=======
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Max Price</label>
-                    <input type="range" id="price-range" min="200" max="1500" value="1500" oninput="updatePriceLabel(this.value)" onchange="filterProducts()" class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0f2c3d]">
-                    <div class="flex justify-between text-xs text-gray-500 mt-1">
-                        <span>₹200</span>
-                        <span id="price-max-label" class="font-semibold text-[#0f2c3d]">₹1500</span>
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                     </div>
                 </div>
 
                 <div>
-<<<<<<< HEAD
                     <label class="block text-xs font-bold text-ash uppercase tracking-wider mb-2">Customer Review</label>
                     <div class="space-y-1.5">
                         <button onclick="setRatingFilter(4)" class="rating-filter-btn flex items-center text-sm text-[#3d3b34] hover:text-clay w-full text-left py-1">
@@ -203,38 +136,21 @@
                         </button>
                         <button onclick="setRatingFilter(3)" class="rating-filter-btn flex items-center text-sm text-[#3d3b34] hover:text-clay w-full text-left py-1">
                             <span class="text-gold mr-2 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i></span> &amp; Up
-=======
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Customer Review</label>
-                    <div class="space-y-2">
-                        <button onclick="setRatingFilter(4)" class="rating-filter-btn flex items-center text-sm text-gray-600 hover:text-orange-500 w-full text-left py-0.5">
-                            <span class="text-yellow-400 mr-2 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-gray-300"></i></span> & Up
-                        </button>
-                        <button onclick="setRatingFilter(3)" class="rating-filter-btn flex items-center text-sm text-gray-600 hover:text-orange-500 w-full text-left py-0.5">
-                            <span class="text-yellow-400 mr-2 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-gray-300"></i><i class="fa-regular fa-star text-gray-300"></i></span> & Up
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                         </button>
                     </div>
                 </div>
             </aside>
 
             <section class="flex-1">
-<<<<<<< HEAD
                 <div class="flex items-center justify-between mb-6 bg-white border border-[#ECE4CE] p-4 rounded-2xl shadow-sm">
                     <span id="results-count" class="text-sm font-medium text-ash">Showing all products</span>
                     <div class="flex gap-2 text-xs">
                         <span id="badge-bestseller" class="hidden bg-clay/10 text-clay-dark font-semibold px-3 py-1.5 rounded-full"><i class="fa-solid fa-fire mr-1"></i>Bestseller Filter Active</span>
-=======
-                <div class="flex items-center justify-between mb-6 bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
-                    <span id="results-count" class="text-sm font-medium text-gray-600">Showing all products</span>
-                    <div class="flex gap-2 text-xs">
-                        <span id="badge-bestseller" class="hidden bg-orange-100 text-orange-800 font-semibold px-2.5 py-1 rounded-full"><i class="fa-solid fa-fire mr-1"></i>Bestseller Filter Active</span>
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                     </div>
                 </div>
 
                 <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     </div>
-<<<<<<< HEAD
 
                 <div id="no-products" class="hidden text-center py-20 bg-white border border-[#ECE4CE] rounded-2xl mt-4">
                     <i class="fa-solid fa-magnifying-glass text-4xl text-[#D9D2BC] mb-3"></i>
@@ -262,38 +178,10 @@
                     <li><a href="#" class="hover:text-gold transition">Terms &amp; Conditions</a></li>
                     <li><a href="#" class="hover:text-gold transition">Corporate Governance</a></li>
                     <li><a href="#" class="hover:text-gold transition">Grievance Redressal</a></li>
-=======
-                
-                <div id="no-products" class="hidden text-center py-20 bg-white border border-gray-200 rounded-xl mt-4">
-                    <i class="fa-solid fa-magnifying-glass text-4xl text-gray-300 mb-3"></i>
-                    <p class="text-gray-500 font-medium">No items matched your dynamic filter selection.</p>
-                </div>
-            </section>
-
-            
-        </div>
-        <div class="w-40 flex justify-self-center top-1 mt-3">
-
-            <button class="w-full bg-[#0f2c3d] text-white py-2.5 rounded font-medium text-xs tracking-wide uppercase shadow hover:bg-opacity-90 transition flex items-center justify-center gap-2">Load More</button>
-        </div>
-    </main>
-
-    <footer class="bg-[#0f2c3d] text-gray-300 pt-16 pb-6 mt-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b border-gray-800">
-            <div>
-                <h3 class="text-white font-bold text-lg mb-4">Company Overview</h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white transition">About Our Brand</a></li>
-                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
-                    <li><a href="#" class="hover:text-white transition">Corporate Governance</a></li>
-                    <li><a href="#" class="hover:text-white transition">Grievance Redressal</a></li>
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                 </ul>
             </div>
 
             <div>
-<<<<<<< HEAD
                 <h3 class="text-parchment font-bold text-xs uppercase tracking-[0.2em] mb-4">Quick Links</h3>
                 <ul class="space-y-2.5 text-sm mb-8">
                     <li><a href="#" class="hover:text-gold transition">Knowledge Base FAQs</a></li>
@@ -327,42 +215,6 @@
 
         <div class="text-center pt-6 text-xs text-parchment/40">
             Copyright © 2026 Glow Ritual ❤️
-=======
-                <h3 class="text-white font-bold text-lg mb-4">Quick Links</h3>
-                <ul class="space-y-2 text-sm mb-6">
-                    <li><a href="#" class="hover:text-white transition">Knowledge Base FAQs</a></li>
-                    <li><a href="#" class="hover:text-white transition">Return & Refund Policy</a></li>
-                    <li><a href="#" class="hover:text-white transition">Payment Options</a></li>
-                </ul>
-                <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Social Media Links</h3>
-                <div class="flex gap-4 text-xl">
-                    <a href="#" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" class="hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-[#16394e] p-6 rounded-xl border border-[#1e4b66]">
-                <h3 class="text-white font-bold text-lg mb-4">Contacts</h3>
-                <form class="space-y-3">
-                    <div>
-                        <label class="block text-xs uppercase font-medium text-gray-400 mb-1">Name</label>
-                        <input type="text" class="w-full bg-[#0f2c3d] rounded p-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-green-400 border border-transparent">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase font-medium text-gray-400 mb-1">Email</label>
-                        <input type="email" class="w-full bg-[#0f2c3d] rounded p-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-green-400 border border-transparent">
-                    </div>
-                    <button type="button" class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 rounded text-xs transition tracking-wide uppercase mt-2">Submit</button>
-                </form>
-            </div>
-        </div>
-       
-        
-        <div class="text-center pt-6 text-xs text-gray-500">
-            Copyright © 2026 MyWebsite ❤️
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
         </div>
     </footer>
 

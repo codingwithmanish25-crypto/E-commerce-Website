@@ -38,7 +38,6 @@
         gridContainer.innerHTML = products.map(product => {
             const initialSize = product.sizes[0];
             return `
-<<<<<<< HEAD
             <div data-id="${product.id}" class="product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
 
                 <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
@@ -64,38 +63,10 @@
                             ${product.sizes.map((sz, idx) => `
                                 <button onclick="selectSizeConfig('${sz.ml}', ${sz.price}, ${sz.mrp}, this)"
                                         class="size-btn text-xs border ${idx === 0 ? 'border-ink bg-ink text-parchment' : 'border-[#DCD3BA] hover:border-ink text-ash'} px-3.5 py-1.5 rounded-full font-semibold tracking-wide transition">
-=======
-            <div data-id="${product.id}" class="product-card bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col justify-between transition-all duration-300 hover:shadow-md">
-                
-                <div class="relative bg-gray-50 rounded-lg p-4 mb-4 flex justify-center h-48 items-center overflow-hidden">
-                    ${product.isBestseller ? `<span class="absolute top-2 left-2 bg-orange-500 text-white text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-md shadow-sm z-10"><i class="fa-solid fa-fire mr-1"></i>Bestseller</span>` : ''}
-                    <img src="${product.baseImg}" alt="${product.name}" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"> 
-                </div>
-                
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-800 text-center line-clamp-2 h-10 product-name">${product.name}</h3>
-                        
-                        <div class="flex justify-center my-2 text-yellow-400 text-xs">
-                            ${generateStarsHTML(product.rating)}
-                            <span class="text-gray-400 ml-1 font-medium">(${product.rating})</span>
-                        </div>
-                        
-                        <div class="text-center mb-3">
-                            <span class="product-price font-bold text-gray-900 text-lg">₹ ${initialSize.price}</span>
-                            <span class="product-mrp text-xs line-through text-gray-400 ml-2">₹ ${initialSize.mrp}</span>
-                        </div>
-                       
-                        <div class="flex justify-center gap-2 mb-4 size-btn-container">
-                            ${product.sizes.map((sz, idx) => `
-                                <button onclick="selectSizeConfig('${sz.ml}', ${sz.price}, ${sz.mrp}, this)" 
-                                        class="size-btn text-xs border ${idx === 0 ? 'border-[#0f2c3d] bg-[#0f2c3d] text-white' : 'border-gray-300 hover:bg-gray-100 text-gray-600'} px-3 py-1 rounded font-medium transition shadow-xs">
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
                                     ${sz.ml}
                                 </button>
                             `).join('')}
                         </div>
-<<<<<<< HEAD
 
                         <div class="text-center mb-4">
                             <span class="product-price font-serif font-semibold text-ink text-xl">₹ ${initialSize.price}</span>
@@ -115,22 +86,6 @@
                 <button onclick="commitProductToCart('${product.id}', this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
                 </button>
-=======
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex items-center border border-gray-300 w-full rounded-lg overflow-hidden shadow-xs bg-white qty-container">
-                            <button onclick="adjustQuantityValue(-1, this)" class="w-10 h-9 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none border-r border-gray-200">-</button>
-                            <input type="number" class="quantity flex-1 h-9 text-center font-semibold text-gray-800 focus:outline-none text-sm" value="1" min="1" readonly>
-                            <button onclick="adjustQuantityValue(1, this)" class="w-10 h-9 bg-gray-50 text-gray-600 hover:bg-gray-100 font-bold transition flex items-center justify-center select-none border-l border-gray-200">+</button>
-                        </div>
-                    </div>
-                
-                    <button onclick="commitProductToCart('${product.id}', this)" class="w-full bg-[#0f2c3d] text-white py-2.5 rounded font-medium text-xs tracking-wide uppercase shadow hover:bg-opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
->>>>>>> e51c01d29fb92f4f8c59eb03d4542f9804344c34
             </div>`;
         }).join('');
     }
