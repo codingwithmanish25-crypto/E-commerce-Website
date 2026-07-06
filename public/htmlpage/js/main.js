@@ -152,12 +152,12 @@ window.onload = updateHeaderCartCount;
 
 // ================ qutailtiy or size ml button ======================
 function selectSize(size, price, mrp, element) {
-    // क्लिक किए गए बटन के सबसे पास वाला .product-card ढूंढें
+    
     const currentCard = element.closest('.product-card');
     
-    if (!currentCard) return; // सुरक्षा जांच
+    if (!currentCard) return;
 
-    // केवल इस कार्ड के अंदर के price और mrp एलिमेंट्स को चुनें
+    
     const priceElement = currentCard.querySelector('.product-price');
     const mrpElement = currentCard.querySelector('.product-mrp');
     
@@ -168,12 +168,12 @@ function selectSize(size, price, mrp, element) {
         mrpElement.innerText = `₹ ${mrp}`;
     }
     
-    // केवल इस कार्ड के अंदर के सभी साइज बटन्स को सामान्य (Deselect) करें
+    
     currentCard.querySelectorAll('.size-btn').forEach(btn => {
         btn.className = "size-btn text-xs border border-gray-300 px-3 py-1 rounded hover:bg-gray-100 text-gray-600 font-medium transition";
     });
     
-    // केवल क्लिक किए गए बटन को एक्टिव (Selected) लुक दें
+    
     element.className = "size-btn text-xs border border-[#0f2c3d] px-3 py-1 rounded bg-[#0f2c3d] text-white font-medium transition shadow-sm";
     
     console.log(`Selected Size: ${size}, Price: ${price}`);
@@ -207,3 +207,34 @@ function updateQty(change, element) {
 
 
 
+
+// =================== Gsap for animation ======================
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = menuBtn.querySelector("i");
+
+    const mobileDropdownBtn = document.getElementById("mobile-dropdown-btn");
+    const mobileDropdownMenu = document.getElementById("mobile-dropdown-menu");
+    const dropdownIcon = mobileDropdownBtn.querySelector("i");
+
+    // 1. Toggle Mobile Main Menu
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        
+        // Icon change script (Bars to X mark)
+        if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.classList.replace("fa-xmark", "fa-bars");
+        } else {
+            menuIcon.classList.replace("fa-bars", "fa-xmark");
+        }
+    });
+
+    // 2. Toggle Mobile Nested Category (Skin & Body) Click
+    mobileDropdownBtn.addEventListener("click", () => {
+        mobileDropdownMenu.classList.toggle("hidden");
+        
+        // Rotate chevron arrow on click
+        dropdownIcon.classList.toggle("rotate-180");
+    });
+});
