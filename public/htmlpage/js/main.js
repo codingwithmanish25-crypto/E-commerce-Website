@@ -208,7 +208,7 @@ function updateQty(change, element) {
 
 
 
-// =================== Gsap for animation ======================
+// =================== Menu button css Work ======================
 document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -238,3 +238,41 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdownIcon.classList.toggle("rotate-180");
     });
 });
+
+
+// ==================== preves and next button=============
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const track = document.getElementById("slider-track");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const slides = track.children;
+    const totalSlides = slides.length;
+    
+    let currentIndex = 0;
+    const updateSlider = ()=>{
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    nextBtn.addEventListener("click",()=>{
+        if(currentIndex <totalSlides-1){
+            currentIndex++;
+        }else{
+            currentIndex=0;
+        }
+        updateSlider()
+    })
+
+    prevBtn.addEventListener("click",()=>{
+        if(currentIndex > 0){
+            currentIndex--;
+        }else{
+            currentIndex = totalSlides-1
+        }
+        updateSlider()
+    })
+
+    setInterval(()=>{
+        nextBtn.click()
+    },5000)
+})

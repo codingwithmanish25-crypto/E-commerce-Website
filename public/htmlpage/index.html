@@ -65,6 +65,7 @@
             animation-timeline: view();
             animation-range: entry 0;
         }
+        
     </style>
 </head>
 <body class="bg-parchment font-sans text-[#2A2A24] antialiased">
@@ -141,6 +142,19 @@
         </div>
     </div>
 </nav>
+
+<div class="flex w-full h-[40vh] overflow-hidden relative group">
+   <button id="prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-ink w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100">
+        <i class="fa-solid fa-angle-left text-lg"></i>
+    </button>
+    <button id="next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-ink w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100"><i class="fa-solid fa-angle-right"></i></button>
+    <div id="slider-track" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+
+        <img src="./static/banner1.jpg" alt="" class="w-screen h-[40vh] shrink-0 object-cover ">
+        <img src="./static/banner2.jpg" alt="" class="w-screen h-[40vh] shrink-0 object-cover ">
+        <img src="./static/banner3.avif" alt="" class="w-screen h-[40vh] shrink-0 object-cover ">
+    </div>
+</div>
 
     <!-- ============ HERO ============ -->
     <header class="max-w-7xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-12 items-center">
@@ -615,7 +629,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
                 <div class="flex flex-col items-center px-4">
-                    <div class="w-[72px] h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
+                    <div class="w-[72px] hover:scale-110 ease-in transition-all duration-200 h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
                         <i class="fa-solid fa-circle-nodes text-xl"></i>
                     </div>
                     <h3 class="text-base font-serif font-semibold text-ink mb-2">Transparency</h3>
@@ -625,7 +639,7 @@
                 </div>
 
                 <div class="flex flex-col items-center px-4">
-                    <div class="w-[72px] h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
+                    <div class="w-[72px] hover:scale-110 ease-in transition-all duration-200 h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
                         <i class="fa-solid fa-flask-vial text-xl"></i>
                     </div>
                     <h3 class="text-base font-serif font-semibold text-ink mb-2">Efficacy</h3>
@@ -635,7 +649,7 @@
                 </div>
 
                 <div class="flex flex-col items-center px-4">
-                    <div class="w-[72px] h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
+                    <div class="w-[72px] hover:scale-110 ease-in transition-all duration-200 h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
                         <i class="fa-solid fa-droplet text-xl"></i>
                     </div>
                     <h3 class="text-base font-serif font-semibold text-ink mb-2">Affordable Luxury</h3>
@@ -645,7 +659,7 @@
                 </div>
 
                 <div class="flex flex-col items-center px-4">
-                    <div class="w-[72px] h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
+                    <div class="w-[72px] hover:scale-110 ease-in transition-all duration-200 h-[72px] flex items-center justify-center text-ink bg-white border-2 border-gold/30 rounded-full mb-5 ring-4 ring-[#EFE8D2]">
                         <i class="fa-solid fa-earth-americas text-xl"></i>
                     </div>
                     <h3 class="text-base font-serif font-semibold text-ink mb-2">Only The Best</h3>
@@ -733,8 +747,8 @@
                 <p class="text-sm text-ash max-w-xl mx-auto leading-relaxed">Four hero ingredients, chosen for what they actually do for your skin — no filler botanicals, no vague "extracts."</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-2xl border border-[#ECE4CE] overflow-hidden">
+            <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white hover:scale-110 ease-in-out transition-all duration-200 rounded-2xl border border-[#ECE4CE] overflow-hidden">
                     <div class="border-b border-dashed border-[#E3D9BC] px-5 pt-4 pb-2">
                         <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Ingredient 01</span>
                     </div>
@@ -746,7 +760,7 @@
                         <p class="text-xs text-ash leading-relaxed">Cold-steamed for calm, hydrated skin and our signature natural fragrance.</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl border border-[#ECE4CE] overflow-hidden">
+                <div class="bg-white hover:scale-110 ease-in-out transition-all duration-200 rounded-2xl border border-[#ECE4CE] overflow-hidden">
                     <div class="border-b border-dashed border-[#E3D9BC] px-5 pt-4 pb-2">
                         <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Ingredient 02</span>
                     </div>
@@ -758,7 +772,7 @@
                         <p class="text-xs text-ash leading-relaxed">Stabilised ascorbic acid that brightens tone and fights dullness over time.</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl border border-[#ECE4CE] overflow-hidden">
+                <div class="bg-white hover:scale-110 ease-in-out transition-all duration-200 rounded-2xl border border-[#ECE4CE] overflow-hidden">
                     <div class="border-b border-dashed border-[#E3D9BC] px-5 pt-4 pb-2">
                         <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Ingredient 03</span>
                     </div>
@@ -770,7 +784,7 @@
                         <p class="text-xs text-ash leading-relaxed">Strengthens the skin barrier and visibly refines pores with regular use.</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl border border-[#ECE4CE] overflow-hidden">
+                <div class="bg-white hover:scale-110 ease-in-out transition-all duration-200  rounded-2xl border border-[#ECE4CE] overflow-hidden">
                     <div class="border-b border-dashed border-[#E3D9BC] px-5 pt-4 pb-2">
                         <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Ingredient 04</span>
                     </div>
