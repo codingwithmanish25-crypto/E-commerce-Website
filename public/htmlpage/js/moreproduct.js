@@ -289,3 +289,33 @@
         
         countDisplayTargetNode.innerText = netCombinedItemQuantitiesSum;
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = menuBtn.querySelector("i");
+
+    const mobileDropdownBtn = document.getElementById("mobile-dropdown-btn");
+    const mobileDropdownMenu = document.getElementById("mobile-dropdown-menu");
+    const dropdownIcon = mobileDropdownBtn.querySelector("i");
+
+    // 1. Toggle Mobile Main Menu
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        
+        // Icon change script (Bars to X mark)
+        if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.classList.replace("fa-xmark", "fa-bars");
+        } else {
+            menuIcon.classList.replace("fa-bars", "fa-xmark");
+        }
+    });
+
+    // 2. Toggle Mobile Nested Category (Skin & Body) Click
+    mobileDropdownBtn.addEventListener("click", () => {
+        mobileDropdownMenu.classList.toggle("hidden");
+        
+        // Rotate chevron arrow on click
+        dropdownIcon.classList.toggle("rotate-180");
+    });
+});
