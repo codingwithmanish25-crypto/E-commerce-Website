@@ -119,3 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdownIcon.classList.toggle("rotate-180");
     });
 });
+
+// ==================dyanmic show product page===============
+
+
+

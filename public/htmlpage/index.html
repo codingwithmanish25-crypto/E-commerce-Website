@@ -118,6 +118,7 @@
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-ink-light border-t border-gold/10 px-4 py-4 text-sm font-medium uppercase tracking-wide">
+        
         <ul class="flex flex-col gap-4">
             <li><a href="#" class="block hover:text-gold transition py-1">Home</a></li>
             <li><a href="./moreproduct.html" class="block hover:text-gold transition py-1">Shop</a></li>
@@ -258,6 +259,7 @@
             <div id="productSliderWrapper" class="flex gap-6 transition-transform duration-500 ease-out style-none" style="transform: translateX(0px);">
 
                 <!-- ===== PRODUCT CARD (repeated) ===== -->
+                
                 <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
                     <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
                         <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
@@ -265,11 +267,206 @@
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
                         </div>
                     </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
+                  
+                <div class="bg-sage-light mx-4 mt-4 rounded-xl flex justify-center h-80 items-center overflow-hidden">
+                    <a href="./product.html" class="block w-full h-full">
+       
+                    <img src="./static/alora image1.jpeg" alt="Face Cream" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </a>
+                </div>
+                    
+
+                    <div class="px-4 pt-4">
+                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
+
+                        <div class="flex justify-center gap-2 mt-4 mb-3">
+                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
+                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
+                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
+                        </div>
                     </div>
+
+                    <div class="px-4 mb-4">
+                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
+                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
+                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
+                                −
+                            </button>
+                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
+                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
+                    </button>
+                </div>
+                
+                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
+                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
+                        <div class="flex text-gold text-[11px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
+                        </div>
+                    </div>
+                  
+                <div class="bg-sage-light mx-4 mt-4 rounded-xl flex justify-center h-80 items-center overflow-hidden">
+                    <a href="./product.html" class="block w-full h-full">
+       
+                    <img src="./static/alora image 2.jpeg" alt="Face Cream" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </a>
+                </div>
+                    
+
+                    <div class="px-4 pt-4">
+                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
+
+                        <div class="flex justify-center gap-2 mt-4 mb-3">
+                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
+                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
+                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
+                        </div>
+                    </div>
+
+                    <div class="px-4 mb-4">
+                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
+                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
+                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
+                                −
+                            </button>
+                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
+                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
+                    </button>
+                </div>
+                
+                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
+                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
+                        <div class="flex text-gold text-[11px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
+                        </div>
+                    </div>
+                  
+                <div class="bg-sage-light mx-4 mt-4 rounded-xl flex justify-center h-80 items-center overflow-hidden">
+                    <a href="./product.html" class="block w-full h-full">
+       
+                    <img src="./static/alora image 3.jpeg" alt="Face Cream" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </a>
+                </div>
+                    
+
+                    <div class="px-4 pt-4">
+                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
+
+                        <div class="flex justify-center gap-2 mt-4 mb-3">
+                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
+                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
+                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
+                        </div>
+                    </div>
+
+                    <div class="px-4 mb-4">
+                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
+                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
+                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
+                                −
+                            </button>
+                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
+                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
+                    </button>
+                </div>
+                
+                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
+                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
+                        <div class="flex text-gold text-[11px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
+                        </div>
+                    </div>
+                  
+                <div class="bg-sage-light mx-4 mt-4 rounded-xl flex justify-center h-90 items-center overflow-hidden">
+                    <a href="./product.html" class="block w-full h-full">
+       
+                    <img src="./static/alora image 4.jpeg" alt="Face Cream" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </a>
+                </div>
+                    
+
+                    <div class="px-4 pt-4">
+                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
+
+                        <div class="flex justify-center gap-2 mt-4 mb-3">
+                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
+                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
+                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
+                        </div>
+                    </div>
+
+                    <div class="px-4 mb-4">
+                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
+                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
+                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
+                                −
+                            </button>
+                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
+                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
+                    </button>
+                </div>
+                
+                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
+                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
+                        <div class="flex text-gold text-[11px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
+                        </div>
+                    </div>
+                  
+                <div class="bg-sage-light mx-4 mt-4 rounded-xl flex justify-center h-90 items-center overflow-hidden">
+                    <a href="./product.html" class="block w-full h-full">
+       
+                    <img src="./static/alora image 5.jpeg" alt="Face Cream" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </a>
+                </div>
+                    
 
                     <div class="px-4 pt-4">
                         <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
@@ -303,275 +500,8 @@
                     </button>
                 </div>
 
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
+               
 
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
-
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
-
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
-
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
-
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
-
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
-
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
-
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
-
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
-
-                <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] flex-shrink-0 product-card bg-white rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate__animated animate__fadeInUp overflow-hidden">
-                    <div class="border-b border-dashed border-[#E3D9BC] px-4 pt-3 pb-2 flex items-center justify-between">
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-clay">Batch GR-014</span>
-                        <div class="flex text-gold text-[11px]">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star text-[#D9D2BC]"></i>
-                        </div>
-                    </div>
-                    <div class="bg-sage-light p-4 mx-4 mt-4 rounded-xl flex justify-center h-44 items-center overflow-hidden">
-                        <a href="./product.html" class="block w-full h-full flex justify-center items-center">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105">
-                        </a>
-                    </div>
-
-                    <div class="px-4 pt-4">
-                        <h3 class="text-base font-serif font-medium text-ink text-center leading-snug">Glow Ritual | Daily Radiance Cream</h3>
-
-                        <div class="flex justify-center gap-2 mt-4 mb-3">
-                            <button onclick="selectSize('100ml', 300, 450, this)" class="size-btn text-xs border border-ink px-3.5 py-1.5 rounded-full bg-ink text-parchment font-semibold tracking-wide">100ml</button>
-                            <button onclick="selectSize('200ml', 550, 799, this)" class="size-btn text-xs border border-[#DCD3BA] px-3.5 py-1.5 rounded-full hover:border-ink transition text-ash font-semibold tracking-wide">200ml</button>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <span class="product-price font-serif font-semibold text-ink text-xl">₹ 300</span>
-                            <span class="product-mrp text-xs line-through text-ash ml-2">₹ 450</span>
-                        </div>
-                    </div>
-
-                    <div class="px-4 mb-4">
-                        <p class="text-[10px] font-bold text-ash uppercase tracking-[0.2em] mb-2 text-center">Quantity</p>
-                        <div class="flex items-center border border-[#DCD3BA] w-full rounded-lg overflow-hidden bg-white">
-                            <button onclick="updateQty(-1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-r border-[#DCD3BA]">
-                                −
-                            </button>
-                            <input type="number" class="quantity flex-1 h-10 text-center font-semibold text-ink focus:outline-none text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none min-w-0" value="1" min="1" readonly>
-                            <button onclick="updateQty(1, this)" class="w-11 h-10 bg-[#FAF7EE] text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center select-none border-l border-[#DCD3BA]">
-                                +
-                            </button>
-                        </div>
-                    </div>
-
-                    <button id="cart-toggle-btn" onclick="toggleCartState(this)" class="w-full bg-clay hover:bg-clay-dark text-white py-3 font-semibold text-xs tracking-[0.15em] uppercase transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-shopping text-xs"></i> Add to Cart
-                    </button>
-                </div>
 
             </div>
         </div>
@@ -1038,6 +968,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/cart.js"></script>
 
     <!-- <script>
         gsap.registerPlugin(ScrollTrigger);

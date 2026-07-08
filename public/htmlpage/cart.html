@@ -60,7 +60,7 @@
                     <a href="#" class="hover:text-gold transition">Skin &amp; Body</a>
                     <a href="#" class="hover:text-gold transition">Hair Care</a>
                     <div class="flex items-center gap-5 ml-2 normal-case">
-                        <a href="#" class="relative text-base"><i class="fa-solid fa-shopping-cart"></i><span class="absolute -top-2 -right-2 bg-clay text-[10px] leading-none px-1.5 py-1 rounded-full">0</span></a>
+                        <a href="#" class="relative text-base"><i class="fa-solid fa-shopping-cart"></i><span class="cart-badge absolute -top-2 -right-2 bg-clay text-[10px] leading-none px-1.5 py-1 rounded-full">0</span></a>
                         <a href="./login.html" class="text-base"><i class="fa-solid fa-user"></i></a>
                     </div>
                 </div>
@@ -82,44 +82,15 @@
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-clay mb-2">Checkout</p>
         <h1 class="text-2xl sm:text-3xl font-serif italic font-medium text-ink mb-8 flex items-center gap-3">
             <i class="fa-solid fa-bag-shopping text-clay text-2xl"></i> Your Shopping Bag
-            <span id="cart-count-badge" class="text-xs bg-ink text-parchment px-3 py-1.5 rounded-full font-semibold tracking-wide not-italic font-sans">1 Item</span>
+            <span id="cart-count-badge" class="text-xs bg-ink text-parchment px-3 py-1.5 rounded-full font-semibold tracking-wide not-italic font-sans">0 Items</span>
         </h1>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
             <div class="lg:col-span-2 space-y-4">
 
-                <div id="cart-item-1" class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-[#ECE4CE] flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between transition hover:shadow-md">
-                    <div class="flex gap-4 items-center w-full sm:w-auto">
-                        <div class="bg-sage-light rounded-xl p-2 w-24 h-24 flex-shrink-0 flex items-center justify-center border border-[#E7DFC7]">
-                            <img src="./static/face creame image.jfif" alt="Face Cream" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <div>
-                            <h3 class="font-serif font-semibold text-ink text-base">Glow Ritual | Daily Radiance Cream</h3>
-                            <p class="text-xs text-ash mt-1">
-                                <span class="font-medium">Size:</span> <span id="item-size-display" class="bg-sage-light text-sage font-semibold px-2 py-0.5 rounded">100ml</span>
-                            </p>
-                            <p class="text-xs text-sage font-semibold mt-1.5"><i class="fa-solid fa-check me-1"></i>In Stock</p>
-                        </div>
-                    </div>
-
-                    <div class="flex sm:flex-row flex-row-reverse sm:items-center justify-between sm:justify-end gap-6 w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-[#ECE4CE]">
-                        <div class="text-right">
-                            <span id="item-total-price" class="font-serif font-semibold text-ink text-lg block">₹ 300</span>
-                            <span id="item-unit-price" class="text-xs text-ash block">₹ 300 / unit</span>
-                        </div>
-
-                        <div class="flex items-center border border-[#DCD3BA] rounded-lg overflow-hidden bg-[#FAF7EE] h-9">
-                            <button onclick="changeQty(-1)" class="w-8 h-full bg-white text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center text-sm">−</button>
-                            <input type="number" id="cart-qty" value="1" min="1" readonly class="w-10 h-full bg-white text-center font-semibold text-ink text-xs focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
-                            <button onclick="changeQty(1)" class="w-8 h-full bg-white text-ink hover:bg-[#F1EBD7] font-bold transition flex items-center justify-center text-sm">+</button>
-                        </div>
-
-                        <button onclick="removeProduct()" class="text-ash hover:text-clay transition p-2 rounded-lg hover:bg-clay/10" title="Remove item">
-                            <i class="fa-regular fa-trash-can text-lg"></i>
-                        </button>
-                    </div>
-                </div>
+                <!-- Cart items are injected here dynamically by cart.js -->
+                <div id="cart-items-list" class="space-y-4"></div>
 
                 <div id="empty-cart-state" class="hidden bg-white rounded-2xl p-14 text-center border border-[#ECE4CE] shadow-sm">
                     <div class="w-16 h-16 bg-sage-light rounded-full flex items-center justify-center mx-auto mb-5 text-sage">
@@ -192,7 +163,7 @@
                     <div class="space-y-3 text-sm">
                         <div class="flex justify-between text-ash">
                             <span>Bag Subtotal</span>
-                            <span id="bill-subtotal" class="font-semibold text-ink">₹ 300</span>
+                            <span id="bill-subtotal" class="font-semibold text-ink">₹ 0</span>
                         </div>
 
                         <div id="discount-row" class="flex justify-between text-sage hidden">
@@ -214,7 +185,7 @@
 
                         <div class="flex justify-between items-baseline">
                             <span class="text-base font-serif font-semibold text-ink">Total Payable</span>
-                            <span id="bill-total" class="text-2xl font-serif font-semibold text-clay">₹ 340</span>
+                            <span id="bill-total" class="text-2xl font-serif font-semibold text-clay">₹ 0</span>
                         </div>
                     </div>
 
@@ -227,5 +198,5 @@
     </main>
 
     <script src="./js/cart.js"></script>
-    </body>
-    </html>
+</body>
+</html>

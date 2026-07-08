@@ -139,5 +139,21 @@
         </form>
     </main>
 
+    <script>
+        const API_URl = "http://localhost:5000/api"
+
+        async function showProductData(){
+            try {
+                
+                const res =  await fetch(`${API_URl}/product/all-product`);
+                const data = res.json()
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        showProductData()
+    </script>
 </body>
 </html>

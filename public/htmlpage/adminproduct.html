@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Product List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            padding: 30px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .badge {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 4px;
+            display: inline-block;
+        }
+        .variant-box {
+            font-size: 13px;
+            background: #f9f9f9;
+            padding: 5px;
+            margin-bottom: 4px;
+            border-left: 3px solid #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Admin Product Panel</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Batch No.</th>
+                <th>Variants (Size | Price | Stock)</th>
+                <th>Rating</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody id="product-table-body">
+            <tr>
+                <td colspan="7" style="text-align: center;">Loading products...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const API_URL = "http://localhost:5000/api/product/all-product";
+
+    async function loadAdminData() {
+        try {
+            const res = await fetch(API_URL);
+            const result = await res.json();
+            
+            
+            const products = result.data; 
+            const tableBody = document.getElementById("product-table-body");
+          
+            tableBody.innerHTML = "";
+
+            if(products.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center;">No Products Found</td></tr>`;
+                return;
+            }
+
+            
+            products.forEach(product => {
+                
+                let variantsHTML = "";
+                product.variants.forEach(v => {
+                    variantsHTML += `
+                        <div class="variant-box">
+                            <strong>${v.size}:</strong> $${v.price} <span style="color:gray;">(Stock: ${v.stock})</span>
+                        </div>`;
+                });
+
+                
+                let tagsHTML = "";
+                product.tags.forEach(tag => {
+                    tagsHTML += `<span class="badge">${tag}</span>`;
+                });
+
+                const row = `
+                    <tr>
+                        <td><img src="${product.productImage}" class="product-img" alt="product"></td>
+                        <td><strong>${product.productName}</strong></td>
+                        <td style="max-width: 250px;">${product.productDetail}</td>
+                        <td><code>${product.batchNumber || 'N/A'}</code></td>
+                        <td>${variantsHTML}</td>
+                        <td>⭐ ${product.productRating}</td>
+                        <td>${tagsHTML}</td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+
+        } catch (error) {
+            console.error("Error loading data:", error);
+            document.getElementById("product-table-body").innerHTML = 
+                `<tr><td colspan="7" style="text-align: center; color: red;">Server se data nahi aa paya!</td></tr>`;
+        }
+    }
+
+    
+    loadAdminData();
+</script>
+
+</body>
+</html>
